@@ -1,0 +1,47 @@
+# values.yaml for landing-frontend
+
+replicaCount: 1
+image:
+  repository: ghcr.io/fitnest-code/admin-frontend
+  tag: "development-a807228"
+  pullPolicy: IfNotPresent
+  imagePullSecrets:
+    - name: ghcr-secret
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 3000
+networkPolicy:
+  enabled: true
+ingress:
+  enabled: true
+  className: nginx
+  annotations:
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+  hosts:
+    - host: dev-admin.fitnest.az
+      paths:
+        - path: /
+          pathType: Prefix
+  tls:
+    - hosts:
+        - dev-admin.fitnest.az
+      secretName: fitnest-wildcard-tls
+  backend:
+    service:
+      name: "" # Empty means use the chart's fullname (landing-frontend)
+      port: 80
+resources:
+  requests:
+    cpu: 11m
+    memory: 130Mi
+  limits:
+    cpu: 500m
+    memory: 200Mi
+env:
+  NODE_ENV: development
+  NEXT_PUBLIC_API_URL: "https://api.fitnest.az"
+assetLinks:
+  enabled: true
+  secretName: assetlinks-secret
