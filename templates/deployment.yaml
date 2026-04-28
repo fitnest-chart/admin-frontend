@@ -43,6 +43,10 @@ spec:
                 secretKeyRef:
                   name: vault-approle-secret
                   key: secret-id
+            - name: VAULT_ADDR
+              value: "http://100.94.253.21:8200"
+            - name: VAULT_SECRET_PATH
+              value: "admin-frontend/development"
           {{- else }}
           env:
             - name: VAULT_ROLE_ID
@@ -55,6 +59,10 @@ spec:
                 secretKeyRef:
                   name: vault-approle-secret
                   key: secret-id
+            - name: VAULT_ADDR
+              value: "http://100.94.253.21:8200"
+            - name: VAULT_SECRET_PATH
+              value: "admin-frontend/development"
           {{- end }}
           {{- if .Values.assetLinks.enabled }}
           volumeMounts:
