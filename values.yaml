@@ -41,7 +41,7 @@ resources:
     cpu: 500m
     memory: 200Mi
 env:
-  NODE_ENV: development
+  NODE_ENV: production
   NEXT_PUBLIC_API_URL: "https://api.fitnest.az"
 assetLinks:
   enabled: true
