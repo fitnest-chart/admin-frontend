@@ -21,13 +21,13 @@ ingress:
     nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
     nginx.ingress.kubernetes.io/proxy-body-size: "64m"
   hosts:
-    - host: dev-admin.fitnest.az
+    - host: admin.fitnest.az
       paths:
         - path: /
           pathType: Prefix
   tls:
     - hosts:
-        - dev-admin.fitnest.az
+        - admin.fitnest.az
       secretName: fitnest-wildcard-tls
   backend:
     service:
