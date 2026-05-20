@@ -3,7 +3,7 @@
 replicaCount: 1
 image:
   repository: ghcr.io/fitnest-code/admin-frontend
-  tag: "development-283e821"
+  tag: "production-8626671"
   pullPolicy: IfNotPresent
   imagePullSecrets:
     - name: ghcr-secret
@@ -41,8 +41,13 @@ resources:
     cpu: 500m
     memory: 200Mi
 env:
+<<<<<<< HEAD
   NODE_ENV: production
   NEXT_PUBLIC_API_URL: "https://api.fitnest.az"
+=======
+  NODE_ENV: production
+  NEXT_PUBLIC_API_URL: "https://api.fitnest.az"
+>>>>>>> development
 assetLinks:
   enabled: true
   secretName: assetlinks-secret
