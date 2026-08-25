@@ -44,7 +44,7 @@ spec:
                   name: vault-approle-secret
                   key: secret-id
             - name: VAULT_ADDR
-              value: "https://vault.fitnest.az:8200"
+              value: "https://vault.fitnest.az"
             - name: VAULT_SECRET_PATH
               value: "admin-frontend/production"
           {{- else }}
@@ -60,7 +60,7 @@ spec:
                   name: vault-approle-secret
                   key: secret-id
             - name: VAULT_ADDR
-              value: "https://vault.fitnest.az:8200"
+              value: "https://vault.fitnest.az"
             - name: VAULT_SECRET_PATH
               value: "admin-frontend/production"
           {{- end }}
