@@ -21,13 +21,13 @@ ingress:
     nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
     nginx.ingress.kubernetes.io/proxy-body-size: "64m"
   hosts:
-    - host: dev-admin.fitnest.az
+    - host: admin-dev.fitnest.az
       paths:
         - path: /
           pathType: Prefix
   tls:
     - hosts:
-        - dev-admin.fitnest.az
+        - admin-dev.fitnest.az
       secretName: fitnest-tls
   backend:
     service:
@@ -42,7 +42,8 @@ resources:
     memory: 384Mi
 env:
   NODE_ENV: production
-  NEXT_PUBLIC_API_URL: "https://dev-api.fitnest.az"
+  NEXT_PUBLIC_ADMIN_ENV: "development"
+  NEXT_PUBLIC_API_URL: "https://api-dev.fitnest.az"
   API_BASE_URL: "http://gateway-backend:80"
 assetLinks:
   enabled: true
