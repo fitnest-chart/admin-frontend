@@ -44,10 +44,11 @@ env:
   NEXT_PUBLIC_ADMIN_ENV: "production"
   NEXT_PUBLIC_SIBLING_ADMIN_URL: "https://admin-dev.fitnest.az"
   SIBLING_API_BASE_URL: "http://gateway-backend.fitnest-development.svc.cluster.local"
-  ENV_SYNC_SECRET: ""
   NODE_ENV: production
   NEXT_PUBLIC_API_URL: "https://api.fitnest.az"
   API_BASE_URL: "http://gateway-backend:80"
+# Loaded from K8s secret admin-sibling-env (and/or Vault) — do not put empty value in chart.
+siblingEnvSecret: admin-sibling-env
 assetLinks:
   enabled: true
   secretName: assetlinks-secret
