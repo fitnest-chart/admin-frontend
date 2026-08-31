@@ -33,12 +33,12 @@ spec:
             - name: {{ $key }}
               value: {{ $value | quote }}
             {{- end }}
-            {{- if .Values.siblingEnvSecret }}
-            - name: ENV_SYNC_SECRET
+            {{- if .Values.staffAccessSecret }}
+            - name: STAFF_ACCESS_SECRET
               valueFrom:
                 secretKeyRef:
-                  name: {{ .Values.siblingEnvSecret }}
-                  key: ENV_SYNC_SECRET
+                  name: {{ .Values.staffAccessSecret }}
+                  key: STAFF_ACCESS_SECRET
             {{- end }}
             - name: VAULT_ROLE_ID
               valueFrom:
@@ -58,12 +58,12 @@ spec:
               value: "admin-frontend/production"
           {{- else }}
           env:
-            {{- if .Values.siblingEnvSecret }}
-            - name: ENV_SYNC_SECRET
+            {{- if .Values.staffAccessSecret }}
+            - name: STAFF_ACCESS_SECRET
               valueFrom:
                 secretKeyRef:
-                  name: {{ .Values.siblingEnvSecret }}
-                  key: ENV_SYNC_SECRET
+                  name: {{ .Values.staffAccessSecret }}
+                  key: STAFF_ACCESS_SECRET
             {{- end }}
             - name: VAULT_ROLE_ID
               valueFrom:

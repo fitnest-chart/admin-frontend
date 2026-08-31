@@ -42,13 +42,14 @@ resources:
     memory: 384Mi
 env:
   NEXT_PUBLIC_ADMIN_ENV: "production"
-  NEXT_PUBLIC_SIBLING_ADMIN_URL: "https://admin-dev.fitnest.az"
-  SIBLING_API_BASE_URL: "http://gateway-backend.fitnest-development.svc.cluster.local"
+  NEXT_PUBLIC_DEVELOPMENT_ADMIN_URL: "https://admin-dev.fitnest.az"
+  # Call identity directly — gateway blocks /api/v1/internal/*
+  DEVELOPMENT_IDENTITY_URL: "http://identity-backend.fitnest-development.svc.cluster.local:8080"
   NODE_ENV: production
   NEXT_PUBLIC_API_URL: "https://api.fitnest.az"
   API_BASE_URL: "http://gateway-backend:80"
-# Loaded from K8s secret admin-sibling-env (and/or Vault) — do not put empty value in chart.
-siblingEnvSecret: admin-sibling-env
+# Shared secret for ensuring staff credentials in development identity.
+staffAccessSecret: admin-staff-access
 assetLinks:
   enabled: true
   secretName: assetlinks-secret
