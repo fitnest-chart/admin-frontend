@@ -3,7 +3,7 @@
 replicaCount: 1
 image:
   repository: ghcr.io/fitnest-code/admin-frontend
-  tag: "development-ef8dd2d"
+  tag: "development-6c97998"
   pullPolicy: IfNotPresent
   imagePullSecrets:
     - name: ghcr-secret
